@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: StudentPortal
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_my_doctor_db?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 6969
