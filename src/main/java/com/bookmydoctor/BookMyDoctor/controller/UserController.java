@@ -1,9 +1,11 @@
 package com.bookmydoctor.BookMyDoctor.controller;
 
+import com.bookmydoctor.BookMyDoctor.dto.DoctorSummary;
 import com.bookmydoctor.BookMyDoctor.dto.UserRequestDTO;
 import com.bookmydoctor.BookMyDoctor.dto.UserResponseDTO;
 import com.bookmydoctor.BookMyDoctor.entity.User;
 import com.bookmydoctor.BookMyDoctor.response.ApiResponse;
+import com.bookmydoctor.BookMyDoctor.service.DoctorService;
 import com.bookmydoctor.BookMyDoctor.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,10 @@ import java.util.List;
 public class UserController {
     @Autowired(required = true)
     private UserService userService;
+
+
+    @Autowired
+    private DoctorService doctorService;
 
     @RequestMapping("/mock")
     public ResponseEntity<?> mockUser(){
@@ -70,6 +76,11 @@ public class UserController {
     public ResponseEntity<?> getAll(){
         List<User> all = userService.getAll();
         return ResponseEntity.ok(all);
+    }
+
+    @GetMapping("/summary")
+    public List<DoctorSummary> getDoctorsSummary() {
+        return doctorService.getDoctorSummaries();
     }
 
 }
