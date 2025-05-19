@@ -1,6 +1,7 @@
 package com.bookmydoctor.BookMyDoctor.service;
 
 import com.bookmydoctor.BookMyDoctor.dto.DoctorRequestDTO;
+import com.bookmydoctor.BookMyDoctor.dto.DoctorSummary;
 import com.bookmydoctor.BookMyDoctor.dto.UserRequestDTO;
 import com.bookmydoctor.BookMyDoctor.entity.Doctor;
 import com.bookmydoctor.BookMyDoctor.entity.User;
@@ -49,5 +50,9 @@ public class DoctorService implements BookMyDoctorService{
     @Override
     public void deleteById(int id) {
 
+    }
+
+    public List<DoctorSummary> getDoctorSummaries() {
+        return doctorRepository.findAllDoctorSummaries();
     }
 }
